@@ -11,6 +11,7 @@ export const Schema = buildSchema(`
 		value: Int!
 		date: String!
 		categoryId: String!
+		libelle: String!
 	}
 	
 	type Query {
@@ -24,8 +25,8 @@ export const Schema = buildSchema(`
 		addCategory(name: String): Category
 		updateCategory(id: ID!, name: String!): Category
 		removeCategory(id: ID!): Category
-		addExpense(value: Int!, date: String!, categoryId: ID!): Expense
-		updateExpense(value: Int!, date: String!, categoryId: ID!): Expense
+		addExpense(value: Int!, date: String!, categoryId: ID!, libelle: String!): Expense
+		updateExpense(value: Int!, date: String!, categoryId: ID!, libelle: String!): Expense
 		removeExpense(id: ID!): Expense
 	}
 `)

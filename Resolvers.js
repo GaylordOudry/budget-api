@@ -24,10 +24,10 @@ export const Resolvers = {
 		return Category.findByIdAndDelete(args.id)
 	},
 	addExpense: (_, args) => {
-		return Expense.create({ value: args.value, date: args.date, categoryId: args.categoryId })
+		return Expense.create({ value: args.value, date: args.date, categoryId: args.categoryId, libelle: args.libelle })
 	},
 	updateExpense: (_, args) => {
-		return Expense.findByIdAndUpdate(args.id, { value: args.value, date: args.date, categoryId: args.categoryId })
+		return Expense.findByIdAndUpdate(args.id, { value: args.value, date: args.date, categoryId: args.categoryId, libelle: args.libelle })
 	},
 	removeExpense: (_, args) => {
 		return Expense.findByIdAndDelete(args.id)
