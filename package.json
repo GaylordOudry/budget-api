@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GaylordOudry/budget-api#readme",
   "dependencies": {
+    "@graphql-tools/schema": "^8.3.9",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
