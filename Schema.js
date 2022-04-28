@@ -26,7 +26,7 @@ export const Schema = buildSchema(`
 		updateCategory(id: ID!, name: String!): Category
 		removeCategory(id: ID!): Category
 		addExpense(value: Int!, date: String!, categoryId: ID!, libelle: String!): Expense
-		updateExpense(value: Int!, date: String!, categoryId: ID!, libelle: String!): Expense
+		updateExpense(id: ID!, value: Int!, date: String!, categoryId: ID!, libelle: String!): Expense
 		removeExpense(id: ID!): Expense
 	}
 `)
