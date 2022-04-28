@@ -10,7 +10,7 @@ export const resolvers = {
 			return Category.findById(args.id);
 		},
 		Expenses: () => {
-			return Expense.find({});
+			return Expense.find();
 		},
 		Expense: (_, args) => {
 			return Expense.findById(args.id)
