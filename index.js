@@ -1,6 +1,6 @@
 import Express                from "express";
 import { graphqlHTTP }        from "express-graphql";
-import cors                   from "cors";
+import cors                  from "cors";
 import { config }             from "dotenv";
 import mongoose               from "mongoose";
 import {resolvers}            from "./Resolvers.js";
@@ -21,8 +21,8 @@ mongoose.connect(DB_URL).then(() => {
 	})
 }).catch(err => console.error(err));
 
-App.use(cors());
 App.use(Express.json())
+App.use(cors());
 App.use("/graphql", graphqlHTTP({ schema, graphiql: true, pretty: true }))
 App.get("/", (_, res) => {
 	//res.send("Hello")
