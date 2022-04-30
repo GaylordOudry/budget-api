@@ -1,6 +1,6 @@
 import Express                from "express";
 import { graphqlHTTP }        from "express-graphql";
-import cors                  from "cors";
+import cors                   from "cors";
 import { config }             from "dotenv";
 import mongoose               from "mongoose";
 import {resolvers}            from "./Resolvers.js";

@@ -6,15 +6,18 @@ export const resolvers = {
 		Categories: () => {
 			return Category.find({});
 		},
-		Category: (parent, args) => {
+		Category: (_, args) => {
 			return Category.findById(args.id);
 		},
 		Expenses: () => {
-			return Expense.find();
+			return Expense.find({});
+		},
+		ExpensesByCategoryId: (_, { id }) => {
+			return Expense.find({ categoryId: id })
 		},
 		Expense: (_, args) => {
 			return Expense.findById(args.id)
-		},
+		}
 	},
 	Mutation: {
 		addCategory: (_, args) => {

@@ -12,10 +12,11 @@ type Expense {
 }
 
 type Query {
-    Categories: [Category]!
-    Category(id: ID!): Category!
-    Expenses: [Expense]!
-    Expense(id: ID!): Expense!
+    Categories: [Category]
+    Category(id: ID!): Category
+    Expenses: [Expense]
+    ExpensesByCategoryId(id: ID!): [Expense]
+    Expense(id: ID!): Expense
 }
 
 type Mutation {
