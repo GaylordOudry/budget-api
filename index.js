@@ -27,7 +27,7 @@ mongoose.connect(DB_URL)
 		.catch(err => console.error(err));
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: true}));
 app.use(isAuth);
 app.use("/graphql", graphqlHTTP({schema, graphiql: true, pretty: true}));
 app.get("/", (_, res) => {
