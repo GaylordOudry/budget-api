@@ -1,0 +1,63 @@
+type Category {
+    id: ID!
+    name: String!
+}
+
+type Expense {
+    id: ID!
+    value: Int!
+    date: String!
+    categoryId: ID!
+    libelle: String!
+    creator: ID!
+}
+
+type User {
+    id: ID!
+    email: String!
+    password: String
+}
+
+type AuthData {
+    userID: ID!
+    token: String!
+    tokenExpiration: Int!
+}
+
+input CategoryInput {
+    id: ID
+    name: String!
+}
+
+input ExpenseInput {
+    id: ID
+    value: Int!
+    date: String!
+    categoryId: ID!
+    libelle: String!
+    creator: ID!
+}
+
+input UserInput {
+    email: String!
+    password: String!
+}
+
+type Query {
+    Categories: [Category]
+    Category(id: ID!): Category
+    Expenses: [Expense]
+    ExpensesByCategoryId(id: ID!): [Expense]
+    Expense(id: ID!): Expense
+    Login(email: String!, password: String!): AuthData!
+}
+
+type Mutation {
+    addCategory(categoryInput: CategoryInput!): Category
+    updateCategory(categoryInput: CategoryInput!): Category
+    removeCategory(id: ID!): Category
+    addExpense(expenseInput: ExpenseInput!): Expense
+    updateExpense(expenseInput: ExpenseInput!): Expense
+    removeExpense(id: ID!, userID: ID!): Expense
+    addUser(userInput: UserInput!): User
+}
