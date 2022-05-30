@@ -34,13 +34,16 @@ app.use(cors());
 app.use(isAuth);
 app.use("/graphql", graphqlHTTP({schema, graphiql: true, pretty: true}));
 app.post("/authenticate", async (req, res) => {
+	console.log({body: req.body});
 	try {
-		const user = await User.findOne({email: req.email});
+		const user = await User.findOne({email: req.body.email});
+		console.log({user});
 		if (!user) throw new Error("User does not exist");
-		const isEqual = await bcrypt.compare(req.password, user.password);
+		const isEqual = await bcrypt.compare(req.body.password, user.password);
 		if (!isEqual) throw new Error("Wrong password !");
 		const token = jwt.sign({userID: user.id, email: user.email}, process.env.SECRET_TOKEN, {expiresIn: "1h"});
-		return {userID: user.id, token, tokenExpiration: 1};
+		res.status(201)
+		   .send({userID: user.id, token, tokenExpiration: 1});
 	} catch (err) {
 		throw new Error(err);
 	}
