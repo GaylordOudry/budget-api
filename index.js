@@ -46,6 +46,6 @@ app.post("/authenticate", async (req, res) => {
 	}
 });
 app.get("/", (_, res) => {
-	res.redirect("/graphql");
+	res.redirect("/authenticate");
 });
 
