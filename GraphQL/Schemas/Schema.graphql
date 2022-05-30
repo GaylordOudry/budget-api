@@ -49,7 +49,6 @@ type Query {
     Expenses: [Expense]
     ExpensesByCategoryId(id: ID!): [Expense]
     Expense(id: ID!): Expense
-    Login(email: String!, password: String!): AuthData!
 }
 
 type Mutation {

@@ -25,19 +25,6 @@ module.exports = {
 		},
 		Expense             : ({id}) => {
 			return Expense.findById(id);
-		},
-		Login               : async (_, {email, password}) => {
-			console.log({email, password});
-			try {
-				const user = await User.findOne({email: email});
-				if (!user) throw new Error("User does not exist");
-				const isEqual = await bcrypt.compare(password, user.password);
-				if (!isEqual) throw new Error("Wrong password !");
-				const token = jwt.sign({userID: user.id, email: user.email}, process.env.SECRET_TOKEN, {expiresIn: "1h"});
-				return {userID: user.id, token, tokenExpiration: 1};
-			} catch (err) {
-				throw new Error(err);
-			}
 		}
 	}
 };
